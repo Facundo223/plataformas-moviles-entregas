@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Recetario</h1>
+        <select id="category-select">
+            <option value="Chinese">China</option>
+            <option value="Italian">Italia</option>
+            <option value="American">EE.UU.</option>
+        </select>
+    </header>
+    <div id="loading-spinner" class="hidden">Cargando...</div>
+    <div id="recipe-grid" class="recipe-grid"></div>
 
+    <script src="script.js"></script>
+</body>
+</html>

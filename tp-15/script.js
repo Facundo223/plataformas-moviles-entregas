@@ -83,6 +83,5 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchRecipes(category);
     });
 
-    // Load default category
     fetchRecipes(categorySelect.value);
 });

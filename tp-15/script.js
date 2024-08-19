@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.getElementById('category-select');
     const recipeGrid = document.getElementById('recipe-grid');
     const loadingSpinner = document.getElementById('loading-spinner');
@@ -84,4 +83,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fetchRecipes(categorySelect.value);
-});
+

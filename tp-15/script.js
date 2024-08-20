@@ -1,3 +1,4 @@
+    
     const categorySelect = document.getElementById('category-select');
     const recipeGrid = document.getElementById('recipe-grid');
     const loadingSpinner = document.getElementById('loading-spinner');
@@ -14,13 +15,11 @@
             meals.forEach(meal => {
                 const card = document.createElement('div');
                 card.className = 'recipe-card card';
-                card.innerHTML = `
-                    <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
-                    <div class="card-body">
+                card.innerHTML = `<img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
+                        <div class="card-body">
                         <h5 class="card-title">${meal.strMeal}</h5>
                         <button class="btn btn-primary" onclick="showDetails('${meal.idMeal}')">Mostrar detalles</button>
-                    </div>
-                `;
+                    </div>`;
                 recipeGrid.appendChild(card);
             });
 
@@ -32,6 +31,9 @@
     }
 
     async function showDetails(idMeal) {
+        const modal = document.querySelector("#recipeDetailsModal")
+        if (modal){ modal.remove()}
+
         loadingSpinner.classList.remove('d-none');
 
         try {
@@ -53,9 +55,7 @@
                                 <p>${meal.strInstructions}</p>
                                 <h6>Ingredientes:</h6>
                                 <ul>
-                                    ${[...Array(20).keys()].map(i => 
-                                        meal[`strIngredient${i + 1}`] ? `<li>${meal[`strIngredient${i + 1}`]} - ${meal[`strMeasure${i + 1}`]}</li>` : ''
-                                    ).join('')}
+                                    ${[...Array(20).keys()].map(i => meal[`strIngredient${i + 1}`] ? `<li>${meal[`strIngredient${i + 1}`]} - ${meal[`strMeasure${i + 1}`]}</li>` : '').join('')}
                                 </ul>
                                 <img src="${meal.strMealThumb}" class="img-fluid" alt="${meal.strMeal}">
                             </div>
@@ -82,5 +82,5 @@
         fetchRecipes(category);
     });
 
-    fetchRecipes(categorySelect.value);
 
+    fetchRecipes(categorySelect.value);
